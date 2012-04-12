@@ -19,6 +19,6 @@ Feature: Application server
      And I reload apache service
     Then apache should be running
      And application should be available on "/"
-```gherkin
+```
 
 *(Prototype project)*
