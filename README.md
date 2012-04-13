@@ -39,8 +39,6 @@ end
 
 When /^I add user "([^"]*)" to "([^"]*)" group$/ do |user_name, group_name|
   user user_name do
-    comment "Deployment User"
-    home "/home/deploy"
     gid group_name
     supports :manage_home => true
   end
