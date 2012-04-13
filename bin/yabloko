@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+$:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
+
+env_vars = ["PATH", "BUNDLE_PATH", "GEM_HOME", "GEM_PATH"].map do |var|
+  "#{var}=#{ENV[var]}" unless ENV[var].nil?
+end.compact.join(" ")
+
+command = "sudo bash -c '#{env_vars} bundle exec cucumber #{ARGV.join(' ')}'"
+system(command) || exit(1)
